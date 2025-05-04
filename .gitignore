@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.log
+
+# Environment
+.env
+.venv/
+env/
+
+# Logs and data
+*.jsonl
+*.sqlite
+*.db
+data/
+backend/data/
+
+# OS & editor
+.DS_Store
+*.swp
+*.swo
+*.bak
+
+# Node.js (frontend)
+node_modules/
+
+# Python
+__pycache__/
+*.pyc
+.env
+venv/
+
+# Node.js
+node_modules/
+dist/
+
+# Logs and data
+*.jsonl
+*.sqlite
+data/
+backend/data/
