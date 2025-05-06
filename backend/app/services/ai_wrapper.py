@@ -5,11 +5,18 @@ from app.services.logger import log_interaction
 client = OpenAI(api_key=OPENAI_API_KEY)
 model = OPENAI_MODEL
 
-AFFIRMATIVE_TEMPLATE = "Answer this student's question clearly and supportively: {}"
-CRITICAL_TEMPLATE = (
-    "Instead of giving the answer directly, ask the student to think critically. "
-    "Ask them what they believe the answer is and why. Then challenge or guide their reasoning: {}"
+AFFIRMATIVE_TEMPLATE = (
+    "Answer this student's question clearly and supportively using Markdown with proper formatting. "
+    "Render math in display LaTeX (use `$$` blocks), and structure the answer with headings or bullet points if helpful. "
+    "Make sure your response is readable and broken into steps where possible. Question: {}"
 )
+
+CRITICAL_TEMPLATE = (
+    "Ask the student to think critically using a helpful tone. Prompt their reasoning first, then guide with follow-up questions. "
+    "If examples or math are needed, use Markdown formatting and render math in display LaTeX using `$$` blocks. "
+    "Structure your response clearly for readability. Question: {}"
+)
+
 
 async def process_prompt(user_prompt: str, mode: str, user_id: str) -> str:
     if mode == "affirmative":
