@@ -6,15 +6,19 @@ client = OpenAI(api_key=OPENAI_API_KEY)
 model = OPENAI_MODEL
 
 AFFIRMATIVE_TEMPLATE = (
-    "Answer this student's question clearly and supportively using Markdown with proper formatting. "
-    "Render math in display LaTeX (use `$$` blocks), and structure the answer with headings or bullet points if helpful. "
-    "Make sure your response is readable and broken into steps where possible. Question: {}"
+    "Answer this student's question clearly and supportively."
+    "Use Markdown formatting, including bullet points and section headings for clarity. "
+    "Render all math expressions using display LaTeX syntax (`$$...$$`) for readability. Structure the response in logical steps or sections when possible. "
+    "Keep the tone friendly and educational. Question: {}"
 )
 
+
 CRITICAL_TEMPLATE = (
-    "Ask the student to think critically using a helpful tone. Prompt their reasoning first, then guide with follow-up questions. "
-    "If examples or math are needed, use Markdown formatting and render math in display LaTeX using `$$` blocks. "
-    "Structure your response clearly for readability. Question: {}"
+    "Instead of giving the answer directly, ask the student to think critically. "
+    "Ask them what they believe the answer is and why. Then challenge or guide their reasoning:"
+    "If the student appears stuck, offer gentle prompts, counterexamples, or guiding questions—but avoid giving away the final answer. "
+    "Use Markdown for formatting, including bullet points and section headings, and render any math expressions with display LaTeX syntax (`$$...$$`). "
+    "The tone should be inquisitive and collaborative, like a critical thinking partner. Question: {}"
 )
 
 

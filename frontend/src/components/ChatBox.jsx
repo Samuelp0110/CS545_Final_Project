@@ -1,5 +1,5 @@
 import ReactMarkdown from 'react-markdown'
-import remarkGfm from 'remark-gfm'
+import remarkMath from 'remark-math'
 import rehypeKatex from 'rehype-katex'
 import 'katex/dist/katex.min.css'
 
@@ -12,17 +12,20 @@ export default function ChatBox({ history }) {
           <div><strong>AI:</strong></div>
           <div
             style={{
-              backgroundColor: '#f0f0f0', // light gray
-              color: '#000',              // black text
+              backgroundColor: '#f9f9f9',
+              color: '#111',
               padding: '1rem',
               borderRadius: '8px',
-              fontFamily: 'sans-serif'
+              fontFamily: 'Georgia, serif',
+              fontSize: '1rem',
+              lineHeight: '1.6',
+              whiteSpace: 'pre-wrap',
             }}
           >
             <ReactMarkdown
               children={entry.ai}
-              remarkPlugins={[remarkGfm]}
-              rehypePlugins={[rehypeKatex]}
+              remarkPlugins={[remarkMath]}         // ✅ this enables math parsing
+              rehypePlugins={[rehypeKatex]}        // ✅ this renders LaTeX using KaTeX
             />
           </div>
         </div>
